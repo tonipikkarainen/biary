@@ -2,9 +2,7 @@ import React from "react";
 import { signInWithPopup } from "firebase/auth";
 import { provider, auth } from "../../firebaseconfig";
 
-type Props = {};
-
-export const Login = (props: Props) => {
+export const Login = () => {
   const signIn = () => {
     signInWithPopup(auth, provider).catch((error) => {
       const errorMessage = error.message;
