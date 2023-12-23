@@ -4,7 +4,7 @@ import { provider, auth } from "../../firebaseconfig";
 
 export const Login = () => {
   const signIn = () => {
-    signInWithPopup(auth, provider).catch((error) => {
+    signInWithPopup(auth, provider).catch((error: Error) => {
       const errorMessage = error.message;
       // Tähän toaster
       alert(errorMessage);
