@@ -12,8 +12,8 @@ export const Navbar = ({ user }: Props) => {
         <div className="flex items-center justify-between">
           <div className="text-white">Logo</div>
           <div className="flex flex-row items-center">
-            <a href="#" className="text-white">
-              Navbar
+            <a href="/home" className="text-white">
+              Home
             </a>
             {user && <Logout />}
           </div>
