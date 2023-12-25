@@ -1,6 +1,7 @@
 import React from "react";
 import { auth } from "../../firebaseconfig";
 import { useRouter } from "next/router";
+import { Button } from "./button";
 
 export const Logout = () => {
   const router = useRouter();
@@ -13,16 +14,8 @@ export const Logout = () => {
   };
 
   return (
-    <div className="flex flex-col rounded px-4 py-2 font-bold text-white">
-      Moi {auth.currentUser?.displayName}!
-      <button
-        onClick={logOut}
-        className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
-      >
-        Log out
-      </button>
+    <div className="rounded px-4 py-2 font-bold text-white">
+      <Button onClick={logOut} text="Logout" />
     </div>
   );
 };
-
-//export default Login;

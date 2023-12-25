@@ -27,5 +27,5 @@ export const app =
 export const db = getFirestore(app);
 export const provider = new GoogleAuthProvider();
 export const auth = getAuth();
-console.log(app);
+console.log("Firebaseconfigista!!");
 //
