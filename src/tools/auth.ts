@@ -14,9 +14,7 @@ export const useAuth = (redirectIfNotAuth = true) => {
       setIsAuthenticated(!!user);
       setLoading(false);
       if (redirectIfNotAuth && !user) {
-        (async () => {
-          await router.push("/");
-        })();
+        void router.push("/");
       }
     });
 
