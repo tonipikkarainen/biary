@@ -10,11 +10,11 @@ export const useAuth = (redirectIfNotAuth = true) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setIsAuthenticated(!!user);
       setLoading(false);
       if (redirectIfNotAuth && !user) {
-        router.push("/");
+        await router.push("/");
       }
     });
 
