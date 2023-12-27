@@ -2,9 +2,10 @@ import Head from "next/head";
 import { Loading } from "~/components/loading";
 import { Navbar } from "~/components/nav";
 import { useAuth } from "~/tools/auth";
+import { Readings } from "~/components/readings";
 
 export default function Home() {
-  const { isAuthenticated, loading } = useAuth();
+  const { isAuthenticated, loading, user } = useAuth();
 
   if (loading) {
     // Render loading indicator or other content while authentication is being checked
@@ -25,8 +26,8 @@ export default function Home() {
       </Head>
       <main className="flex min-h-screen flex-col  bg-gradient-to-b from-[#282a29] to-[#365a72]">
         <Navbar user={isAuthenticated} />
-        <div className="flex flex-1 items-center justify-center">
-          <div>Tähän kaikki kirjat</div>
+        <div className="flex flex-1 items-center justify-center text-white">
+          <Readings />
         </div>
       </main>
     </>
