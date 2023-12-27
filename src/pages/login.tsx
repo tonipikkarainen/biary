@@ -13,7 +13,7 @@ export default function Login() {
   if (loading) return <Loading />;
 
   if (user) {
-    router.push(`/`);
+    void router.push(`/`);
   }
 
   return (
