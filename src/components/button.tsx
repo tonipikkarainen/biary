@@ -9,7 +9,7 @@ export const Button = (props: Props) => {
   return (
     <button
       onClick={props.onClick}
-      className="rounded bg-blue-500 px-4 py-2 font-bold text-white hover:bg-blue-700"
+      className="rounded border border-gray-200 px-4 py-2 font-bold text-white hover:bg-neutral-950"
     >
       {props.text}
     </button>

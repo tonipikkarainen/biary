@@ -13,9 +13,5 @@ export const Logout = () => {
     }
   };
 
-  return (
-    <div className="rounded px-4 py-2 font-bold text-white">
-      <Button onClick={logOut} text="Logout" />
-    </div>
-  );
+  return <Button onClick={logOut} text="Logout" />;
 };

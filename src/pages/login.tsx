@@ -1,19 +1,19 @@
 import Head from "next/head";
+import { auth } from "../../firebaseconfig";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { LoginButton } from "../components/loginbutton";
 import { Loading } from "~/components/loading";
 import { Navbar } from "~/components/nav";
-import { useAuth } from "~/tools/auth";
+import { useRouter } from "next/router";
 
-export default function Home() {
-  const { isAuthenticated, loading } = useAuth();
+export default function Login() {
+  const [user, loading] = useAuthState(auth);
+  const router = useRouter();
 
-  if (loading) {
-    // Render loading indicator or other content while authentication is being checked
-    return <Loading />;
-  }
+  if (loading) return <Loading />;
 
-  if (!isAuthenticated) {
-    // If not authenticated, the user will be redirected to the home page
-    return null; // or loading indicator, login form, etc.
+  if (user) {
+    router.push(`/`);
   }
 
   return (
@@ -24,9 +24,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="flex min-h-screen flex-col  bg-gradient-to-b from-[#282a29] to-[#365a72]">
-        <Navbar user={isAuthenticated} />
+        <Navbar user={!!user} />
         <div className="flex flex-1 items-center justify-center">
-          <div>Tähän kaikki kirjat</div>
+          {!user ? <LoginButton /> : <div>Tähän kaikki kirjat</div>}
         </div>
       </main>
     </>

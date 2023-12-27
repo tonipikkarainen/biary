@@ -3,7 +3,7 @@ import { signInWithPopup } from "firebase/auth";
 import { provider, auth } from "../../firebaseconfig";
 import { Button } from "./button";
 
-export const Login = () => {
+export const LoginButton = () => {
   const signIn = () => {
     signInWithPopup(auth, provider).catch((error: Error) => {
       const errorMessage = error.message;

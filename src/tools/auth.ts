@@ -14,7 +14,7 @@ export const useAuth = (redirectIfNotAuth = true) => {
       setIsAuthenticated(!!user);
       setLoading(false);
       if (redirectIfNotAuth && !user) {
-        void router.push("/");
+        void router.push("/login");
       }
     });
 
